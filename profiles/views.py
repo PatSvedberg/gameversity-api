@@ -24,6 +24,7 @@ class ProfileList(generics.ListAPIView):
     ]
     filterset_fields = [
         'owner__subscribing__subscribed__profile',
+        'owner__subscribed__owner__profile',
     ]
     ordering_fields = [
         'tutorial_count',
