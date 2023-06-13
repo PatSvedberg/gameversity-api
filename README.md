@@ -1,39 +1,31 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Deployment
 
-Welcome,
+# Repository
+* Create repository from the Code institute [ci-full-template](https://github.com/Code-Institute-Org/ci-full-template)
+* Give it a name
+* Open it up with Github from the green Github button
+    * If there is no button. Download the Github extention for your browser.
+## Django
+* Install Django by entering `pip3 install 'django<4'` in the terminal 
+* Create a project by entering `django-admin startproject <projectname> .` in the terminal 
+## Cloudinary
+* Go to [Cloudinary](https://cloudinary.com/)
+* Fill out the form and sign up for free
+* Go to the dashboard and 
+* To be able to connect to Cloudinary enter `pip install django-cloudinary-storage` in the terminal
+* Add Cloudinary to Installed apps in Settings.py
+* Install Pillow by entering `pip install Pillow` in the terminal
+* Create env.py file and add `import os` and `os.environ ['CLOUDINARY_URL'] = '<URL from Cloudinary Dashboard>'`
+* Inside Settings.py, under `from pathlib import Path` add the following code to set up Cloudinary storage:
+```
+import os
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+if os.path.exists('env.py'):
+    import env
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 11th, 2023**
-
-## Codeanywhere Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+```
