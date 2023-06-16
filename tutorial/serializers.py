@@ -54,7 +54,7 @@ class TutorialSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'description', 'image', 'language',
-            'engine', 'engine_version', 'theme', 'step_description',
-            'step_image', 'like_id', 'likes_count', 'comments_count',
+            'engine', 'engine_version', 'theme',
+            'like_id', 'likes_count', 'comments_count',
             'steps',
         ]
