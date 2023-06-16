@@ -24,7 +24,7 @@ class Tutorial(models.Model):
 
 
 class Step(models.Model):
-    tutorial = models.ForeignKey(Tutorial, on_delete=models.CASCADE)
+    tutorial = models.ForeignKey(Tutorial, on_delete=models.CASCADE, related_name='steps')
     step_description = models.TextField(blank=False)
     step_image = models.ImageField(
         upload_to='images/', blank=True
