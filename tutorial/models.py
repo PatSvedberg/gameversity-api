@@ -2,11 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class  Tutorial(models.Model):
-    '''
-    Tutorial model, related to owner, i.e a User instance.
-    Default image set so that we can always reference image.url
-    '''
+class Tutorial(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -19,10 +15,6 @@ class  Tutorial(models.Model):
     engine = models.CharField(max_length=255)
     engine_version = models.CharField(max_length=255)
     theme = models.CharField(max_length=255)
-    step_description = models.TextField(blank=False)
-    step_image = models.ImageField(
-        upload_to='images/', blank=True
-    )
 
     class Meta:
         ordering = ['-created_at']
@@ -30,3 +22,17 @@ class  Tutorial(models.Model):
     def __str__(self):
         return f'{self.id} {self.title}'
 
+
+class Step(models.Model):
+    tutorial = models.ForeignKey(Tutorial, on_delete=models.CASCADE)
+    step_description = models.TextField(blank=False)
+    step_image = models.ImageField(
+        upload_to='images/', blank=True
+    )
+    order = models.PositiveIntegerField()
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f'{self.tutorial.title} - Step {self.order}'
