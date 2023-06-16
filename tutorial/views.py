@@ -3,8 +3,7 @@ from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from gameversity_api.permissions import IsOwnerOrReadOnly
 from .models import Tutorial
-from .serializers import TutorialSerializer
-
+from .serializers import TutorialSerializer, StepSerializer
 
 class TutorialList(generics.ListCreateAPIView):
     """
@@ -41,8 +40,15 @@ class TutorialList(generics.ListCreateAPIView):
     ]
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
-
+        tutorial = serializer.save(owner=self.request.user)
+        steps_data = self.request.data.get('steps', [])
+        for step_data in steps_data:
+            step_serializer = StepSerializer(data=step_data)
+            if step_serializer.is_valid(raise_exception=True):
+                step_serializer.save(tutorial=tutorial)
+            else:
+                tutorial.delete()
+                raise serializers.ValidationError(step_serializer.errors)
 
 class TutorialDetail(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -54,3 +60,30 @@ class TutorialDetail(generics.RetrieveUpdateDestroyAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
+
+    def perform_update(self, serializer):
+        tutorial = serializer.save()
+        steps_data = self.request.data.get('steps', [])
+        current_steps = tutorial.steps.all()
+
+        # Update or create the related steps
+        for step_data in steps_data:
+            step_id = step_data.get('id')
+            if step_id:
+                step = current_steps.filter(id=step_id).first()
+                if step:
+                    step_serializer = StepSerializer(step, data=step_data)
+                else:
+                    raise serializers.ValidationError("Invalid step ID.")
+            else:
+                step_serializer = StepSerializer(data=step_data)
+
+            if step_serializer.is_valid(raise_exception=True):
+                step_serializer.save(tutorial=tutorial)
+            else:
+                raise serializers.ValidationError(step_serializer.errors)
+
+        # Delete any removed steps
+        for step in current_steps:
+            if step.id not in [step_data.get('id') for step_data in steps_data]:
+                step.delete()

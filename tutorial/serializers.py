@@ -1,7 +1,11 @@
 from rest_framework import serializers
-from tutorial.models import Tutorial
+from tutorial.models import Tutorial, Step
 from likes.models import Like
 
+class StepSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Step
+        fields = '__all__
 
 class TutorialSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
@@ -11,6 +15,7 @@ class TutorialSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    steps = StepSerializer(many=True, read_only=True)
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -51,4 +56,5 @@ class TutorialSerializer(serializers.ModelSerializer):
             'title', 'description', 'image', 'language',
             'engine', 'engine_version', 'theme', 'step_description',
             'step_image', 'like_id', 'likes_count', 'comments_count',
+            'steps',
         ]
