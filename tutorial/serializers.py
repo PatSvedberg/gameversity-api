@@ -5,7 +5,7 @@ from likes.models import Like
 class StepSerializer(serializers.ModelSerializer):
     class Meta:
         model = Step
-        fields = '__all__
+        fields = '__all__'
 
 class TutorialSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
