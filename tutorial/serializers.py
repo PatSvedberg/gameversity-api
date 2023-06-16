@@ -34,6 +34,13 @@ class TutorialSerializer(serializers.ModelSerializer):
             )
         return value
 
+    def create(self, validated_data):
+        steps_data = validated_data.pop('steps')
+        tutorial = Tutorial.objects.create(**validated_data)
+        for step_data in steps_data:
+            Step.objects.create(tutorial=tutorial, **step_data)
+        return tutorial
+
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner

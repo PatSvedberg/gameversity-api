@@ -40,15 +40,7 @@ class TutorialList(generics.ListCreateAPIView):
     ]
 
     def perform_create(self, serializer):
-        tutorial = serializer.save(owner=self.request.user)
-        steps_data = self.request.data.get('steps', [])
-        for step_data in steps_data:
-            step_serializer = StepSerializer(data=step_data)
-            if step_serializer.is_valid(raise_exception=True):
-                step_serializer.save(tutorial=tutorial)
-            else:
-                tutorial.delete()
-                raise serializers.ValidationError(step_serializer.errors)
+        serializer.save(owner=self.request.user)
 
 class TutorialDetail(generics.RetrieveUpdateDestroyAPIView):
     """
