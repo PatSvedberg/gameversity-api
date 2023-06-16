@@ -63,7 +63,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEBUG' in os.environ
 
-ALLOWED_HOSTS = ['8000-patsvedberg-gameversity-8xuf98m0z7h.ws-eu99.gitpod.io', 'localhost', 'gameversity-api.herokuapp.com']
+ALLOWED_HOSTS = ['8000-patsvedberg-gameversity-8xuf98m0z7h.ws-eu100.gitpod.io', 'localhost', 'gameversity-api.herokuapp.com']
 
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [

@@ -15,7 +15,7 @@ class TutorialSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
-    steps = StepSerializer(many=True, read_only=True)
+    steps = StepSerializer(many=True)
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
