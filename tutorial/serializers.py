@@ -21,26 +21,30 @@ class TutorialSerializer(serializers.ModelSerializer):
         if value.size > 2 * 1024 * 1024:
             raise serializers.ValidationError('Image size larger than 2MB!')
         if value.image.height > 4096:
-            raise serializers.ValidationError('Image height larger than 4096px!')
+            raise serializers.ValidationError(
+                'Image height larger than 4096px!'
+            )
         if value.image.width > 4096:
-            raise serializers.ValidationError('Image width larger than 4096px!')
+            raise serializers.ValidationError(
+                'Image width larger than 4096px!'
+            )
+        if value.image.height > 4096:
+            raise serializers.ValidationError(
+                'Image height larger than 4096px!'
+            )
         return value
-
-    def create(self, validated_data):
-        steps_data = validated_data.pop('steps', [])  # Provide empty steps if not present
-        tutorial = Tutorial.objects.create(**validated_data)
-        for step_data in steps_data:
-            Step.objects.create(tutorial=tutorial, **step_data)
-        return tutorial
 
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
 
+    
     def get_like_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
-            like = Like.objects.filter(owner=user, tutorial=obj).first()
+            like = Like.objects.filter(
+                owner = user, tutorial = obj
+            ).first()
             return like.id if like else None
         return None
 
