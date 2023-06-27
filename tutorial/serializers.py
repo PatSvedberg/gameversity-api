@@ -56,5 +56,5 @@ class TutorialSerializer(serializers.ModelSerializer):
             'title', 'description', 'image', 'language',
             'engine', 'engine_version', 'theme',
             'like_id', 'likes_count', 'comments_count',
-            'steps',
+            'steps', 'instructions',
         ]
