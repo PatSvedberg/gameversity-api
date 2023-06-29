@@ -1,3 +1,25 @@
+# Project Goal
+# Planning
+In the beginning of the project, I focused on planning. I started by creating user stories for the frontend application. These stories were based on the project's goals and helped me understand what users would want from the app.
+
+The user stories served as a guide to create wireframes, which showed how the app would work and how users would use it. They gave me a clear picture of how people would interact with the app and the steps they would take to get things done.
+
+Once I had the user stories and wireframes ready, I figured out the essential features needed to make a Minimum Viable Product (MVP). I broke down each user story into smaller tasks and connected them to the necessary parts of the app's backend (API endpoints) that would support the required features.
+
+This process of creating user stories, making wireframes, and connecting them to the backend ensured that my development path was clear and focused. It helped me create a seamless and user-friendly app by aligning the frontend experience with the backend functionality.
+# Data models
+I planned the data model schema concurrently with the API endpoints by utilizing an entity relationship diagram.
+The custom models implemented for the project include:
+## Tutorial
+## Subscribers
+## Profiles
+## Likes
+
+## ERD
+![ERD picture](../gameversity-api/reamde/readme-erd.png)
+# API Endpoints
+# Frameworks, Libraries and Dependencies
+# Testing
 # Deployment
 
 ## Github Repository
