@@ -59,10 +59,10 @@ The custom models implemented for the project include:
 
 ## Packages Used
 * External Python Packages
-    * [Cloudinary](https://pypi.org/project/cloudinary/1.30.0/) - Cloudinary intergration.
-    * [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/0.3.0/) - Cloudinary intergration.
+    * [Cloudinary](https://pypi.org/project/cloudinary/1.30.0/) - Cloudinary integration.
+    * [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/0.3.0/) - Cloudinary integration.
     * [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/) - Allows the use of 'DATABASE_URL' environmental variable in the Django project settings file to connect to a PostgreSQL database.
-    * [django-allauth](https://pypi.org/project/django-allauth/0.51.0/) - Set of Django application used for account registration, management and authentication.
+    * [django-allauth](https://pypi.org/project/django-allauth/0.51.0/) - Set of Django applications used for account registration, management and authentication.
     * [dj-rest-auth](https://pypi.org/project/dj-rest-auth/2.2.5/) - API endpoints for handling authentication in Django Rest Framework.
     * [django-filter](https://pypi.org/project/django-filter/22.1/) - Application that allows dynamic QuerySet filtering from URL parameters.
     * [djangorestframework-simplejwt](https://pypi.org/project/djangorestframework-simplejwt/5.2.1/) - JSON Web Token authentication backend for the Django REST Framework.
@@ -83,7 +83,7 @@ The custom models implemented for the project include:
 * Create repository from the Code institute **[ci-full-template](https://github.com/Code-Institute-Org/ci-full-template)**
 * Give it a name
 * Open it up with Github from the green **Gitpod** button
-    * If there is no button. Download the **Gitpod** extention for your browser.
+    * If there is no button. Download the **Gitpod** extension for your browser.
 
 ## Django
 * Install **Django** by entering **`pip3 install 'django<4'`** in the terminal 
