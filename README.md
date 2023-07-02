@@ -17,7 +17,7 @@ The custom models implemented for the project include:
 
 ## ERD
 
-![ERD picture](../gameversity-api/reamde/readme-erd.png)
+![ERD picture](reamde/readme-erd.png)
 
 # API Endpoints
 # Frameworks, Libraries and Dependencies

@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 
 
 class Tutorial(models.Model):
+    """
+    The Tutorial model is used to store tutorials. Each tutorial is owned by a User,
+    and has an associated title, description, image, language, engine, engine version, theme, 
+    and instructions.
+    """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -25,6 +30,10 @@ class Tutorial(models.Model):
 
 
 class Step(models.Model):
+    """
+    The Step model is used to store individual steps in a tutorial. Each step is associated with a tutorial,
+    has a description, an image, and an order.
+    """
     tutorial = models.ForeignKey(Tutorial, on_delete=models.CASCADE, related_name='steps')
     step_description = models.TextField(blank=False)
     step_image = models.ImageField(

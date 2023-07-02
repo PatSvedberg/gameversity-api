@@ -3,11 +3,19 @@ from tutorial.models import Tutorial, Step
 from likes.models import Like
 
 class StepSerializer(serializers.ModelSerializer):
+    """
+    StepSerializer is a serializer for the Step model. It includes all fields in the model.
+    """
     class Meta:
         model = Step
         fields = '__all__'
 
 class TutorialSerializer(serializers.ModelSerializer):
+    """
+    TutorialSerializer is a serializer for the Tutorial model. It includes fields from the model
+    as well as additional fields such as is_owner, profile_id, profile_image, like_id, likes_count, 
+    comments_count, and steps.
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
@@ -17,6 +25,7 @@ class TutorialSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
     steps = StepSerializer(many=True, required=False)
 
+    # Validate the size and dimensions of the image
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
             raise serializers.ValidationError('Image size larger than 2MB!')
@@ -34,11 +43,12 @@ class TutorialSerializer(serializers.ModelSerializer):
             )
         return value
 
+    # Check if the request user is the owner of the tutorial
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
 
-    
+    # Get the id of the like object that the request user has for the tutorial
     def get_like_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
