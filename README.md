@@ -32,6 +32,20 @@ The custom models implemented for the project include:
 
 # API Endpoints
 
+## Endpoints and testing
+
+| URL | Result |
+| :---:   | :---: |
+| / | Works as expected |
+| /tutorials/ | Works as expected |
+| /tutorials/<`id`> | Works as expected |
+| /profiles/ | Works as expected  |
+| /profiles/<`id`> | Works as expected |
+| /likes/ | Works as expected |
+| /likes/<`id`> | Works as expected |
+| /subscribers/ | Works as expected |
+| /subscribers/<`id`>  | Works as expected |
+
 # Technologies Used
 ## Languages and Frameworks Used
 * [Python](https://www.python.org/) - The main programming language.
