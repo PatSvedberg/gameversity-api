@@ -1,4 +1,15 @@
+# Gameversity API
+
+## [React repository](https://github.com/PatSvedberg/gameversity-react)
+## [Deployed API](https://gameversity-api.herokuapp.com/)
+## [Deployed React](https://gameversity.herokuapp.com/)
+<br />
+
 # Project Goal
+
+# Future Features
+* Initially, I had an idea to add a feature to the tutorial creation form. Instead of having an "instructions" section, I wanted to include a section called "steps" at the bottom of the page. In this section, users could provide information using a text field and upload images for each step. They would be able to add as many steps as they wanted. I managed to implement this feature in the backend, but I encountered difficulties while working on it in React. I asked my mentor and reached out to tutor support twice, but unfortunately, I couldn't find a solution. I believe the problem was that each step needed its own model with a connection to the tutorial. However, since the tutorial wasn't technically created until the user clicked the submit button, I struggled to find a way around it. Since I had already spent a lot of time on it, I decided to opt for a simpler solution for now. However, I have kept the step model for future implementation.
+
 # Planning
 In the beginning of the project, I focused on planning. I started by creating user stories for the frontend application. These stories were based on the project's goals and helped me understand what users would want from the app.
 
@@ -20,7 +31,33 @@ The custom models implemented for the project include:
 ![ERD picture](reamde/readme-erd.png)
 
 # API Endpoints
-# Frameworks, Libraries and Dependencies
+
+# Technologies Used
+## Languages and Frameworks Used
+* [Python](https://www.python.org/) - The main programming language.
+* [Django](https://pypi.org/project/Django/3.2.14/) - Python Web framework used to develop the project.
+* [djangorestframework](https://pypi.org/project/djangorestframework/3.14.0/) - Toolkit for building web API's with Django.
+
+## Python Modules Used
+* Built-in Packages/Modules
+    * [pathlib](https://docs.python.org/3/library/pathlib.html) - Used to work with filepaths.
+    * [os](https://docs.python.org/3/library/os.html) - This module provides a portable way of using operating system dependent functionality.
+
+## Packages Used
+* External Python Packages
+    * [Cloudinary](https://pypi.org/project/cloudinary/1.30.0/) - Cloudinary intergration.
+    * [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/0.3.0/) - Cloudinary intergration.
+    * [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/) - Allows the use of 'DATABASE_URL' environmental variable in the Django project settings file to connect to a PostgreSQL database.
+    * [django-allauth](https://pypi.org/project/django-allauth/0.51.0/) - Set of Django application used for account registration, management and authentication.
+    * [dj-rest-auth](https://pypi.org/project/dj-rest-auth/2.2.5/) - API endpoints for handling authentication in Django Rest Framework.
+    * [django-filter](https://pypi.org/project/django-filter/22.1/) - Application that allows dynamic QuerySet filtering from URL parameters.
+    * [djangorestframework-simplejwt](https://pypi.org/project/djangorestframework-simplejwt/5.2.1/) - JSON Web Token authentication backend for the Django REST Framework.
+    * [django-cors-headers](https://pypi.org/project/django-cors-headers/3.13.0/) - Django App that adds CORS headers to responses. 
+    * [gunicorn](https://pypi.org/project/gunicorn/20.1.0/) - Python WSGI HTTP Server.
+    * [Pillow](https://pypi.org/project/Pillow/9.2.0/) - Fork of PIL, the Python Imaging Library which provides image processing capabilities.
+    * [psycopg2](https://pypi.org/project/psycopg2/2.9.3/) - Python PostgreSQL database adapter.
+
+
 # Testing
 # Deployment
 
