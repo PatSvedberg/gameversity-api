@@ -6,6 +6,7 @@
 <br />
 
 # Project Goal
+The primary goal of this project is to create a website where game developers can upload their own game development tutorials in text form. There are a lot of video tutorials for game development, but sometimes a smaller tutorial with text and pictures can be easier. This website aims to become a comprehensive hub for game development knowledge, enabling developers from all around the world to share their wisdom and learn from each other. Whether you're an experienced developer with a lot of knowledge to share or a newbie looking for guidance, this site is for you.
 
 # Future Features
 * Initially, I had an idea to add a feature to the tutorial creation form. Instead of having an "instructions" section, I wanted to include a section called "steps" at the bottom of the page. In this section, users could provide information using a text field and upload images for each step. They would be able to add as many steps as they wanted. I managed to implement this feature in the backend, but I encountered difficulties while working on it in React. I asked my mentor and reached out to tutor support twice, but unfortunately, I couldn't find a solution. I believe the problem was that each step needed its own model with a connection to the tutorial. However, since the tutorial wasn't technically created until the user clicked the submit button, I struggled to find a way around it. Since I had already spent a lot of time on it, I decided to opt for a simpler solution for now. However, I have kept the step model for future implementation.
@@ -28,10 +29,9 @@ The custom models implemented for the project include:
 
 ## ERD
 
-![ERD picture](reamde/readme-erd.png)
+![ERD picture](readme/readme-erd.png)
 
 # API Endpoints
-
 ## Endpoints and testing
 
 | URL | Result |
@@ -71,6 +71,10 @@ The custom models implemented for the project include:
     * [Pillow](https://pypi.org/project/Pillow/9.2.0/) - Fork of PIL, the Python Imaging Library which provides image processing capabilities.
     * [psycopg2](https://pypi.org/project/psycopg2/2.9.3/) - Python PostgreSQL database adapter.
 
+## Programs and Tools Used
+* [Lucidchart](https://www.lucidchart.com/) - Create Database Schema/ERD
+* [Gitpod](https://gitpod.io/workspaces) Gitpod was used to edit code
+* [GitHub](https://github.com/) Version control
 
 # Testing
 # Deployment
