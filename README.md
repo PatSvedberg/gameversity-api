@@ -263,4 +263,4 @@ if 'DEV' in os.environ:
 * Confirm that the data in your database on ElephantSQL has been created
 * On the **ElephantSQL** page for your database, in the left side navigation, select **BROWSER**
 * Click the **Table queries** button, select **auth_user**
-* When you click **Execute**, you should see your newly created superuser details displayed. This confirms your tables have been created and you can add data to your database.
+* When you click **Execute**, you should see your newly created superuser details displayed. This confirms your tables have been created and you can add data to your database
