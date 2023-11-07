@@ -61,7 +61,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-patsvedberg-gameversity-8xuf98m0z7h.ws-eu100.gitpod.io', 'localhost', 'gameversity-api.herokuapp.com']
 
